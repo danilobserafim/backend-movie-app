@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model likedMovies {
+  id           Int             @id @default(autoincrement())
+  Title        String? 
+  Year         String?
+  Rated        String?
+  Released     String?
+  Runtime      String?
+  Genre        String?
+  Director     String?
+  Writer       String?
+  Actors       String?
+  Plot         String?
+  Language     String?
+  Country      String?
+  Awards       String?
+  Poster       String?
+  Ratings      ratingsMovies[] 
+  Metascore    String?
+  imdbRating   String?
+  imdbVotes    String?
+  imdbID       String? @unique()
+  Type         String?
+  totalSeasons String?
+  Response     String?
+}
+
+model ratingsMovies {
+  id      Int         @id @default(autoincrement())
+  movieId Int
+  movie   likedMovies? @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  Source  String
+  Value   String
+
+  @@map("ratings")
+}
