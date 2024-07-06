@@ -1,4 +1,4 @@
-import { Lead, likedMovies } from "@prisma/client";
+import { likedMovies } from "@prisma/client";
 import { prisma } from "../../../../prisma/PrismaClient";
 import { GetLikedMovieDTO } from "./GetLikedMovieDTO";
 import { LikedMovieDTO } from "../LikeMovie/LikeMovieDTO";
