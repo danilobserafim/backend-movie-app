@@ -8,9 +8,9 @@ Serviço criado para administrar uma aplicação que busca dados na api do <a hr
   </br>
 
 ## Instalação
-• Certique-se que tem a versão mais recente do node ou superior a versão do projeto•  
-• Baixe esse repositorio para seu computador•  
-• Execute o prompt de comando na pasta do projeto•  
+• Certique-se que tem a versão mais recente do node ou superior a versão do projeto.  
+• Baixe esse repositorio para seu computador.  
+• Execute o prompt de comando na pasta do projeto.   
  - npm install  
  - altere o arquivo ".env.example" para ".env"  
  - npx prisma migrate dev  
