@@ -214,7 +214,7 @@ Após a inicialização a api estará rodando em <a href="http://localhost:3333"
 ## Tecnologías
 • Node js  
 • express  
-• prisma
+• prisma  
 • Sqlite
 
 
