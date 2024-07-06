@@ -5,6 +5,8 @@ Serviço criado para administrar uma aplicação que busca dados na api do <a hr
 
 
 
+  </br>
+
 ## Instalação
 • Certique-se que tem a versão mais recente do node ou superior a versão do projeto•  
 • Baixe esse repositorio para seu computador•  
@@ -15,13 +17,18 @@ Serviço criado para administrar uma aplicação que busca dados na api do <a hr
  - dê um nome para a migration (Init para inicialização)  
  - npm run dev (para iniciar o projeto)
 
+  </br>
+
 ## Modo de uso
 Após a inicialização a api estará rodando em <a href="http://localhost:3333" target="_blank">localhost:3333</a>.
+
+  </br>
   
-## Os endpoints a seguir fornecem acesso a dados   
+## Endpoints  
   
-  
-• [GET]/movies - Retorna um conjunto de dados em JSON:   
+
+### [GET]/movies
+ - Retorno da requisição:  
 ```json  
 // 20240706083651  
 // http://localhost:3333/movies  
@@ -94,7 +101,11 @@ Após a inicialização a api estará rodando em <a href="http://localhost:3333"
 ]  
   
 ```  
-• [GET]/movies/:id - Retorna um objeto JSON:   
+  
+  </br>
+  
+### [GET]/movies/:id   
+ - Retorno da requisição:  
 ```json  
 // 20240706085745  
 // http://localhost:3333/movies/tt2551516  
@@ -124,7 +135,11 @@ Após a inicialização a api estará rodando em <a href="http://localhost:3333"
   "Response": "True"  
 }  
 ```  
-• [POST]/movies   
+  
+  </br>
+  
+### [POST]/movies   
+
  - corpo da requisição  
 ```json  
 {  

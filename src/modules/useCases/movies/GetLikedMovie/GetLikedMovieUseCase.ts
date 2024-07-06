@@ -9,7 +9,14 @@ type props = {
 }
 export class GetLikedMovieUseCase{
     async execute({id}:{id:string}): Promise<likedMovies | null>{ 
-        const likedMovies = await prisma.likedMovies.findFirst({where:{
+        const likedMovies = await prisma.likedMovies.findFirst({include:{
+            Ratings:{
+                select:{
+                    Source:true,
+                    Value:true
+                }
+            }
+        }, where:{
             imdbID: id
         }})
         return likedMovies;
