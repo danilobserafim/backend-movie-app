@@ -1,5 +1,5 @@
-export type LikedMovieDTO = {
-    id?: number,
+export type MovieDTO = {
+    id?: string,
     Title: string,
     Year: string,
     Rated: string,

@@ -1,7 +1,5 @@
 import { likedMovies } from "@prisma/client";
 import { prisma } from "../../../../prisma/PrismaClient";
-import { GetLikedMoviesDTO } from "./GetLikedMoviesDTO";
-import { LikedMovieDTO } from "../LikeMovie/LikeMovieDTO";
 
 
 type props = {

@@ -15,7 +15,7 @@ app.use(morgan("dev"))
 
 app.use(routes)
 
-app.use((err: Error, req: Request, res:Response)=>{
+app.use((err: Error, req: Request, res:Response, next: NextFunction)=>{
     if (err instanceof AppErrors) {
         return res.status(err.statusCode).json({
             status: err.statusCode,

@@ -1,8 +1,8 @@
 import { GetLikedMoviesUseCase } from "./GetLikedMoviesUseCase";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 export class GetLikedMoviesController{
-    async handle(req:Request, res: Response){
+    async handle(req:Request, res: Response, next:NextFunction){
         const {id} = req.params
 
         const getLikedMoviesUseCase = new GetLikedMoviesUseCase()

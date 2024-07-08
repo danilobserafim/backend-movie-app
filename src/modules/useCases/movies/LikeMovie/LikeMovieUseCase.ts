@@ -1,10 +1,10 @@
 import { likedMovies } from "@prisma/client";
 import { prisma } from "../../../../prisma/PrismaClient";
-import { LikedMovieDTO } from "./LikeMovieDTO";
 import { AppErrors } from "../../../../erros/ApprErrors";
+import { MovieDTO } from "../DTO";
 
 export class LikeMovieUseCase {
-    async execute(movie: LikedMovieDTO): Promise<likedMovies> {
+    async execute(movie: MovieDTO): Promise<likedMovies> {
         try {
             const like = await prisma.likedMovies.create({
                 data:
