@@ -6,7 +6,7 @@ type props = {
 
 }
 export class GetLikedMoviesUseCase {
-    async execute({ id }: { id: string }): Promise<likedMovies[] | null> {
+    async execute(): Promise<likedMovies[] | null> {
         const likedMovies = await prisma.likedMovies.findMany({
             include: {
                 Ratings: {
@@ -15,8 +15,6 @@ export class GetLikedMoviesUseCase {
                         Value: true
                     }
                 }
-            }, where: {
-                imdbID: id
             },
             orderBy:{
                 Title:"asc"
