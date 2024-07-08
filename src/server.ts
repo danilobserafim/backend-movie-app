@@ -9,13 +9,13 @@ import { AppErrors } from "./erros/ApprErrors";
 const app = express()
 
 dotenv.config()
+app.use(cors({origin:  "*"}))
 app.use(express.json())
-app.use(cors())
 app.use(morgan("dev"))
 
 app.use(routes)
 
-app.use((err: Error, req: Request, res:Response, next: NextFunction)=>{
+app.use((err: Error, req: Request, res:Response)=>{
     if (err instanceof AppErrors) {
         return res.status(err.statusCode).json({
             status: err.statusCode,
