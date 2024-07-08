@@ -15,7 +15,9 @@ export class GetLikedMoviesUseCase {
                         Value: true
                     }
                 }
-            }, 
+            }, where: {
+                imdbID: id
+            },
             orderBy:{
                 Title:"asc"
             }
