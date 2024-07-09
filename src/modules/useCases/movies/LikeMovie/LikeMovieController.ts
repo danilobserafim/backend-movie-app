@@ -5,7 +5,7 @@ import { NextFunction, Request, Response } from "express";
 export class LikeMovieController{
     async handle(req:Request, res: Response, next:NextFunction){
 
-        const {movie:MovieDTO} = req.body;
+        const movie:MovieDTO = req.body.movie;
 
         const likeMovieUseCase = new LikeMovieUseCase()
 
