@@ -1,6 +1,5 @@
 import { likedMovies } from "@prisma/client";
 import { prisma } from "../../../../prisma/PrismaClient";
-import { AppErrors } from "../../../../erros/ApprErrors";
 import { MovieDTO } from "../DTO";
 
 export class LikeMovieUseCase {

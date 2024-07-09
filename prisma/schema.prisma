@@ -9,12 +9,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model likedMovies {
-  id           String             @id @default(uuid()) @map("_id") @db.ObjectId
+  id           String             @id @default(uuid())
   Title        String? 
   Year         String?
   Rated        String?
@@ -40,7 +40,7 @@ model likedMovies {
 }
 
 model ratingsMovies {
-  id      String         @id @default(uuid()) @map("_id") @db.ObjectId
+  id      String         @id @default(uuid())
   movieId String
   movie   likedMovies @relation(fields: [movieId], references: [id], onDelete: Cascade)
   Source  String
