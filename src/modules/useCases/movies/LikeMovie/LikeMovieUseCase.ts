@@ -32,7 +32,11 @@ export class LikeMovieUseCase {
                     Website: movie.Website,
                     Writer: movie.Writer,
                     Year: movie.Year,
-                    
+                    Ratings: {
+                        createMany: {
+                            data: movie.Ratings
+                        }
+                    }
                 }
             })
             return like;
