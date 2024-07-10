@@ -6,16 +6,17 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["mongodb"]
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model likedMovies {
-  id           String             @id @default(uuid())
-  Title        String? 
+  id           String          @id @default(auto()) @map("_id") @db.ObjectId()
+  Title        String?
   Year         String?
   Rated        String?
   Released     String?
@@ -29,22 +30,24 @@ model likedMovies {
   Country      String?
   Awards       String?
   Poster       String?
-  Ratings      ratingsMovies[] 
+  Ratings      ratingsMovies[]
   Metascore    String?
   imdbRating   String?
   imdbVotes    String?
-  imdbID       String? @unique()
+  imdbID       String?         @unique()
   Type         String?
+  DVD          String?
+  BoxOffice    String?
+  Production   String?
   totalSeasons String?
+  Website      String?
   Response     String?
 }
 
 model ratingsMovies {
-  id      String         @id @default(uuid())
-  movieId String
+  id      String      @id @default(auto()) @map("_id") @db.ObjectId()
+  movieId String      @db.ObjectId()
   movie   likedMovies @relation(fields: [movieId], references: [id], onDelete: Cascade)
   Source  String
   Value   String
-
-  @@map("ratings")
 }

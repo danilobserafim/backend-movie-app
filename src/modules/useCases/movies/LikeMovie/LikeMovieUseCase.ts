@@ -6,43 +6,39 @@ export class LikeMovieUseCase {
     async execute(movie: MovieDTO): Promise<likedMovies> {
         try {
             const like = await prisma.likedMovies.create({
-                data:
-                {
-                    Title: movie.Title,
-                    Year: movie.Year,
-                    Rated: movie.Rated,
-                    Released: movie.Released,
-                    Runtime: movie.Runtime,
-                    Genre: movie.Genre,
-                    Director: movie.Director,
-                    Writer: movie.Writer,
+                data: {
                     Actors: movie.Actors,
-                    Plot: movie.Plot,
-                    Language: movie.Language,
-                    Country: movie.Country,
                     Awards: movie.Awards,
-                    Poster: movie.Poster,
-                    Metascore: movie.Metascore,
+                    BoxOffice: movie.BoxOffice,
+                    Country: movie.Country,
+                    Director: movie.Director,
+                    DVD: movie.DVD,
+                    Genre: movie.Genre,
+                    imdbID: movie.imdbID,
                     imdbRating: movie.imdbRating,
                     imdbVotes: movie.imdbVotes,
-                    imdbID: movie.imdbID,
-                    Type: movie.Type,
+                    Language: movie.Language,
+                    Metascore: movie.Metascore,
+                    Plot: movie.Plot,
+                    Poster: movie.Poster,
+                    Production: movie.Production,
+                    Rated: movie.Rated,
+                    Released: movie.Released,
+                    Response: movie.Response,
+                    Runtime: movie.Runtime,
+                    Title: movie.Title,
                     totalSeasons: movie.totalSeasons,
-                    Response: movie.Response
+                    Type: movie.Type,
+                    Website: movie.Website,
+                    Writer: movie.Writer,
+                    Year: movie.Year,
+                    
                 }
-            })
-            movie.Ratings.map(async rating=>{
-                await prisma.ratingsMovies.create({data:{
-                    Source: rating.Source,
-                    Value: rating.Value,
-                    movieId: like.id
-                }})
             })
             return like;
         } catch (error) {
-            const unliked = prisma.likedMovies.delete({ where: { imdbID: movie.imdbID } })
-            return unliked
+            const response = await prisma.likedMovies.delete({where: {imdbID: movie.imdbID}})
+            return response
         }
-
     }
 }
