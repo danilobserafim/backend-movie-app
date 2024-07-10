@@ -14,10 +14,7 @@ export type MovieDTO = {
     Country?: string,
     Awards?: string,
     Poster?: string,
-    Ratings: [{
-        Source: string,
-        Value: string
-    }],
+    Ratings: Ratings[],
     Metascore?: string,
     imdbRating?: string,
     imdbVotes?: string,
